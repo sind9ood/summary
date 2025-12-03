@@ -1,6 +1,6 @@
 # summary
 
-## XA Multi Agent
+## Multi Agent
 - Utilize google ADK for multi agent systems
 - Sub-agents for multiple use cases like activation, appointment, billing, internet troubleshooting, mobile, outage, payments, transfers, etc.
 - Each sub-agent implementation includes its corresponding prompt (agent instruction) and the definition of its tools
