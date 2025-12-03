@@ -24,3 +24,9 @@
 - Tried PEFT adapter to lightly train new task-specific parameters while preserving as much of the pretrained LLM’s original performance as possible
 - Generated a synthetic training dataset using the LLM to cover a wide range of desired scenarios and used it for fine-tuning
 
+## FAQ Router
+- Built a classifier to distinguish FAQ-related user queries from other types of queries, such as those requesting actions or reporting issues for resolution
+- Used the LLM to generate potential questions based on FAQ-related documents. Also,generated non-FAQ questions using documents related to problem resolution.
+- Additionally, collected general questions (outside the domain) and included them in the training dataset
+- The test dataset was created by collecting historical user queries for each intent and annotating them based on reviews by domain experts
+
