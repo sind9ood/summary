@@ -14,15 +14,12 @@
 - AWS integration for seemless test execution
 - Test case specification: target agent, start phrase, initial params, target evaluators, success criteria, max steps, number of samples, etc.
 
-## Iterative Learning by Active LLM Annotation (Experiments)
-- Improve default NLU (simple intent classifier) though active annotation by LLM
-- Identify clean/noisy samples from the classifier trained with new annotated dataset and try improving improving the model with clean set in the next step
-
 ## LLM Fine-tuning for Customized Service
 - Performed fine-tuning to build an LLM that works effectively for the ‘Technician Appointment Scheduling’ use case.
 - Utilized several lightweight pretrained LLM models, such as GPT-Neo 2.7B and Mistral 7B
 - Tried PEFT adapter to lightly train new task-specific parameters while preserving as much of the pretrained LLM’s original performance as possible
 - Generated a synthetic training dataset using the LLM to cover a wide range of desired scenarios and used it for fine-tuning
+- Converted data format to be compatible with datasets for pre-trained LLMs
 
 ## FAQ Router
 - Built a classifier to distinguish FAQ-related user queries from other types of queries, such as those requesting actions or reporting issues for resolution
@@ -30,3 +27,16 @@
 - Additionally, collected general questions (outside the domain) and included them in the training dataset
 - The test dataset was created by collecting historical user queries for each intent and annotating them based on reviews by domain experts
 
+## Iterative Learning by Active LLM Annotation (Experiments)
+- Improve default NLU (simple intent classifier) though active annotation by LLM
+- Identify clean/noisy samples from the classifier trained with new annotated dataset and try improving improving the model with clean set in the next step
+
+## Active Learning Framework (for Entertainment Platforms)
+- Implemented a feedback loop that detects negative user interactions (e.g. repetition of same queries, exit key press) by checking patterns and uses this information to drive improvements
+- Used the tool Snorkel to utilized the concept of weak supervision (Labeling functions)
+- Created a complete data pipeline that reads all log data, identifies negative interactions using a weak supervision model, and enables monitoring of the entire process
+
+## Active Learning Framework Extension
+- Tried query rewriting technique to reduce negative interactions by utilizing co-occurence graph (Based on HMM theory)
+- Increased the performance of re-writing by merging the knowledge of entities (programs) maintained in programs DB
+- Developed a module that predicts the correct transcript and the target program directly from phonemes, bypassing numerous transcript errors in speech recognition.
